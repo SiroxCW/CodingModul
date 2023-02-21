@@ -1,6 +1,5 @@
 
 using System;
-using System.ComponentModel.Design;
 
 namespace DefaultProjekt
 {
@@ -9,22 +8,34 @@ namespace DefaultProjekt
         static void Main(string[] args)
         {
             int varSwitch;
-            Console.Write("Wie heißt du? ");
-            string name = Console.ReadLine();
-            Console.Write("Wie alt bist du? ");
-            int alter = Convert.ToInt32(Console.ReadLine());
+            int alter;
+            string name;
+            while (true)
+            {
+                Console.Write("Wie heißt du? ");
+                name = Console.ReadLine();
+                Console.Write("Wie alt bist du? ");
+                alter = Convert.ToInt32(Console.ReadLine());
 
-            if (alter < 12)
-            {
-                varSwitch = 1;
-            }
-            else if (alter <= 18)
-            {
-                varSwitch = 2;
-            }
-            else
-            {
-                varSwitch = 3;
+                if (alter < 12 && alter > 0)
+                {
+                    varSwitch = 1;
+                    break;
+                }
+                else if (alter < 18 && alter >= 12 )
+                {
+                    varSwitch = 2;
+                    break;
+                }
+                else if (alter >= 18)
+                {
+                    varSwitch = 3;
+                    break;
+                }
+                else if (alter < 1) 
+                {
+                    Console.WriteLine("Invalides Alter!");
+                }
             }
 
             switch (varSwitch) {
